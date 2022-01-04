@@ -16,6 +16,7 @@ public class tp1 {
         //Fermer cookies
         WebElement buttonCookies = driver.findElement(By.id("sp-cc-accept"));
         buttonCookies.click();
+        //Utiliser la barre de recherche
         WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
         barreRecherche.sendKeys("machine a raclette");
         barreRecherche.sendKeys(Keys.ENTER);
@@ -27,9 +28,10 @@ public class tp1 {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.amazon.fr");
         driver.manage().window().maximize();
-        //Fermer cookies
-        WebElement buttonCookies = driver.findElement(By.id("sp-cc-accept"));
-        buttonCookies.click();
+        //Fermer les cookies
+        WebElement boutonCookies = driver.findElement(By.id("sp-cc-accept"));
+        boutonCookies.click();
+        //Utiliser la barre de recherche
         WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
         barreRecherche.sendKeys("machine a raclette");
         barreRecherche.sendKeys(Keys.ENTER);
@@ -38,12 +40,17 @@ public class tp1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        WebElement firstProduct = driver.findElement(By.cssSelector("[cel_widget_id='MAIN-SEARCH_RESULTS-11']"));
-        firstProduct.click();
-        
+        //Selectioner le premier article
+        WebElement premierArticle = driver.findElement(By.cssSelector("[cel_widget_id='MAIN-SEARCH_RESULTS-10']"));
+        premierArticle.click();
+        //Ajouter l'article dans le panier
         WebElement ajoutPanier= driver.findElement(By.cssSelector("[data-action='dp-pre-atc-declarative']"));
         ajoutPanier.click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.quit();
     }
 }
