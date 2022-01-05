@@ -18,7 +18,7 @@ public class tp1 {
     public void setup(){
         driver = new ChromeDriver();
         //Attente implicite
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         driver.get("https://www.amazon.fr");
         driver.manage().window().maximize();
         //Fermer cookies
@@ -56,12 +56,12 @@ public class tp1 {
     }
     @Test
     public void testLivres(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.findElement(By.id("nav-hamburger-menu")).click();
 
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hmenu-item[data-menu-id='10']")));
         driver.findElement(By.cssSelector(".hmenu-item[data-menu-id='10']")).click();
-        
+
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("ul.hmenu-visible > li:nth-child(3)")));
         driver.findElement(By.cssSelector("ul.hmenu-visible > li:nth-child(3)")).click();
     }
