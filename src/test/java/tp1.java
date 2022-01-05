@@ -12,7 +12,7 @@ public class tp1 {
     WebDriver driver;
     @BeforeMethod
     public void setup(){
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.get("https://www.amazon.fr");
         driver.manage().window().maximize();
         //Fermer cookies
