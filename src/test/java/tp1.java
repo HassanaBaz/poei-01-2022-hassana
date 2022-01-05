@@ -3,6 +3,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,6 +19,10 @@ public class tp1 {
         WebElement buttonCookies = driver.findElement(By.id("sp-cc-accept"));
         buttonCookies.click();
     }
+    @AfterMethod
+    public void teardown(){
+        driver.quit();
+    }
     //Chercher une machine à raclette dans la barre de recherche du site amazon
     @Test
     public void test1(){
@@ -25,7 +30,6 @@ public class tp1 {
         WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
         barreRecherche.sendKeys("machine a raclette");
         barreRecherche.sendKeys(Keys.ENTER);
-        driver.quit();
     }
 
     @Test
@@ -50,6 +54,5 @@ public class tp1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.quit();
     }
 }
