@@ -21,7 +21,7 @@ public class UberEatsTests {
         driver.get("https://www.ubereats.com/fr");
         driver.manage().window().maximize();
         //Close cookies
-        WebElement buttonCookies = driver.findElement(By.cssSelector("[class='bc gh gi gl bj bk bl bm bn bo bt bu ba bb']"));
+        WebElement buttonCookies = driver.findElement(By.cssSelector("#cookie-banner button.bj"));
         buttonCookies.click();
     }
     @AfterMethod
@@ -33,14 +33,14 @@ public class UberEatsTests {
     public void addBurgerToCart(){
 
         // Arrange
-        int timeoutSearchLoad = 30;
+        int timeoutSearchLoad = 10;
         By searchLocation = By.id("location-typeahead-home-input");
         String Address = "La Defense";
-        By searchBurgersCategorie = By.cssSelector("[alt='Burgers']");
+        By searchBurgersCategorie = By.cssSelector("img[alt='Burgers']");
         By searchFirstRestaurant = By.cssSelector("a[href^='/fr/store/king-marcel-nanterre/07TTIgUiQPWyz4uq4_H35w'] > h3");
         By firstBurgerMenu = By.cssSelector("div[tabindex='0']");
         By commandButton = By.cssSelector(".spacer._24 + button.b8");
-        By cartbuttonSelector = By.cssSelector("#wrapper > header > div > div > div.gg.ah.hq.bf > div.ah.i5.i6.i7.cf.ag > button > div");
+        By cartbuttonSelector = By.cssSelector("[aria-label='checkout']");
         String OrderItems="1";
 
 
