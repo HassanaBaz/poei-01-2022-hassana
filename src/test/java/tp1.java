@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
+
 public class tp1 {
 
     WebDriver driver;
@@ -85,5 +86,6 @@ public class tp1 {
 
         // Assert
         Assert.assertEquals(listeDeResultat.size(), expectedNumberOfResults, "The number of search results is not correct");
+
     }
 }
