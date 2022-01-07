@@ -38,7 +38,7 @@ public class AmazonTest {
 
         ProductPage productPage= new ProductPage(driver);
         productPage.addToCart();
-        productPage.rejectCoverage();
+        productPage.noCoverage();
 
         ConfirmationAddToCartPage confirmationAddToCartPage= new ConfirmationAddToCartPage(driver);
         confirmationAddToCartPage.openCart();

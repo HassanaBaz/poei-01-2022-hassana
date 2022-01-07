@@ -23,7 +23,7 @@ public class ProductPage {
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(timeoutSideBar));
         wait.until(ExpectedConditions.elementToBeClickable(addToWarrantyButtonSelector));
     }
-    public void rejectCoverage(){
+    public void noCoverage(){
         driver.findElement(addNoCoverageButtonSelector).click();
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(timeoutConfirmation));
         wait.until(ExpectedConditions.visibilityOfElementLocated(addToCartConfirmationSelector));
