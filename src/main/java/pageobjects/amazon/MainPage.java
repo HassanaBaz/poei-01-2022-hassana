@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobjects.apple.IphonePage;
 
 import java.time.Duration;
 
@@ -22,4 +23,5 @@ public class MainPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds((timeoutSearch)));
         wait.until(ExpectedConditions.elementToBeClickable(searchResultSelector));
     }
+
 }
