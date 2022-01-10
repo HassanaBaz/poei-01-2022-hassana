@@ -1,11 +1,11 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageobjects.amazon.*;
 
 public class AmazonTest {
 
@@ -58,13 +58,13 @@ public class AmazonTest {
         String productName="machine a raclette";
 
         //Act
-        MainPage mainPage= new MainPage(driver);
+        pageobjects.amazon.MainPage mainPage= new pageobjects.amazon.MainPage(driver);
         mainPage.searchProduct((productName));
 
-        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        pageobjects.amazon.SearchResultPage searchResultPage = new pageobjects.amazon.SearchResultPage(driver);
         searchResultPage.openResult(0);
 
-        ProductPage productPage= new ProductPage(driver);
+        pageobjects.amazon.ProductPage productPage= new pageobjects.amazon.ProductPage(driver);
         productPage.addToCart();
         //Assert
     }*/
