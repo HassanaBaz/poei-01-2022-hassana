@@ -68,4 +68,10 @@ public class AmazonTest {
         productPage.addToCart();
         //Assert
     }*/
+    @Test
+    public void passedTest() {
+        MainPage mainPage = new MainPage(driver);
+
+        Assert.assertTrue(true);
+    }
 }
