@@ -3,6 +3,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -10,6 +12,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
@@ -19,7 +23,15 @@ public class tp1 {
     WebDriver driver;
     @BeforeMethod
     public void setup(){
-        driver = new ChromeDriver();
+        URL seleniumGridUrl = null;
+        try {
+            seleniumGridUrl = new URL("http://127.0.0.1:4444");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        ChromeOptions chromeOptions = new ChromeOptions();
+        driver = new RemoteWebDriver(seleniumGridUrl, chromeOptions);
+
         //Attente implicite
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         driver.get("https://www.amazon.fr");
@@ -56,7 +68,7 @@ public class tp1 {
         WebElement ajoutPanier= driver.findElement(By.cssSelector("[name='submit.add-to-cart']"));
         ajoutPanier.click();
     }
-    @Test
+    /*@Test
     public void testLivres(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.findElement(By.id("nav-hamburger-menu")).click();
@@ -66,7 +78,7 @@ public class tp1 {
 
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("ul.hmenu-visible > li:nth-child(3)")));
         driver.findElement(By.cssSelector("ul.hmenu-visible > li:nth-child(3)")).click();
-    }
+    }*/
     @Test
     public void testMultipleElement(){
 
