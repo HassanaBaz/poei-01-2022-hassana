@@ -1,11 +1,17 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.amazon.*;
+
+import java.time.Duration;
 
 public class AmazonTest {
 
@@ -23,6 +29,7 @@ public class AmazonTest {
     public void teardown(){
         driver.quit();
     }
+
     @Test
     public void HPChromebookAddToCartPriceTest(){
         //Arrange
@@ -68,4 +75,18 @@ public class AmazonTest {
         productPage.addToCart();
         //Assert
     }*/
+    @Test
+    public void hoverTest(){
+        By buttonSelector = By.id("nav-link-accountList");
+        By myAccountLinkSelector = By.cssSelector("#nav-al-your-account .nav-title + a");
+        int timeoutSearch= 2;
+        WebElement button= driver.findElement(buttonSelector);
+        Actions hover = new Actions(driver);
+        hover.moveToElement(button);
+        hover.perform();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds((timeoutSearch)));
+        wait.until(ExpectedConditions.elementToBeClickable(myAccountLinkSelector)).click();
+
+    }
 }
