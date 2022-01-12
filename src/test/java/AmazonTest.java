@@ -10,15 +10,25 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageobjects.amazon.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.Duration;
 
 public class AmazonTest {
 
     WebDriver driver;
+    Logger log = LogManager.getLogger(AmazonTest.class);
+
     @BeforeMethod
     public void setup(){
         driver = new ChromeDriver();
+        log.info("Hassana was here");
+        log.trace("trace");
+        log.debug("debug");
+        log.fatal("fatale");
+        //Niveaux de log de + important au - important
+        //FATAL > ERROR > WARNING > INFO > DEBUG > TRACE 
 
         driver.get("https://www.amazon.fr");
         driver.manage().window().maximize();
